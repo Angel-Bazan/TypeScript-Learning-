@@ -96,4 +96,64 @@ function combine(
  
 // function isOlder(user: User, checkAge: number) {
 //   return checkAge > user.age;
+// } 
+
+//Function Return Types & Void 
+
+//Void will be the standard where you have a function that does not return a value
+
+// function add(n1: number, n2: number) {
+//     return n1 + n2;
 // }
+
+// function printResult(num: number): void {
+//     console.log('Result: ' + num);
+// }
+
+// printResult(add(5, 12)); 
+
+//Functions as types : types that describe a function regarding the parameters and the return value allows us to describe which type of function specifically we want to use somewhere expected value in a parameter to create a function with some call back or like the example below a variable 
+
+// function add(n1: number, n2: number) {
+//     return n1 + n2;
+// }
+
+// function printResult(num: number): void {
+//     console.log('Result: ' + num);
+// }
+
+// printResult(add(5, 12)); 
+
+// let combineValues: (a: number, b:number) => number; 
+
+// combineValues = add; 
+
+// console.log(combineValues(8, 8));
+
+//function types call backs example:call back needs to be a function that maybe does'nt return anything but it does take a number as an argument 
+
+function add(n1: number, n2: number,) {
+    return n1 + n2;
+}
+
+function printResult(num: number): void {
+    console.log('Result: ' + num);
+}
+
+function addAndHandle(n1: number, n2: number, cb: (num: number) => void) {
+    const result = n1 + n2;
+    cb(result);
+}
+
+printResult(add(5, 12)); 
+
+let combineValues: (a: number, b:number) => number; 
+
+combineValues = add; 
+
+console.log(combineValues(8, 8));
+
+addAndHandle(10, 20, (result) => {
+    console.log(result);
+})
+
