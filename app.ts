@@ -157,3 +157,6 @@ addAndHandle(10, 20, (result) => {
     console.log(result);
 })
 
+
+//Unknown Types: for unknown types we first have to check the currently stored in userInput before we can assign it to any variable type; unknown is better than any because it allows you to do some checking of the different types being used  
+
