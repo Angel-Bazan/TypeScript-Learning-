@@ -1,13 +1,13 @@
-function add(n1: number | string, n2: number | string) {
-    let result;
-    if(typeof n1 === 'number' && typeof n2 === 'number'){
-        result = n1 + n2;
-    }else{
-        result = n1.toString() + n2.toString();
-    }
+// function add(n1: number | string, n2: number | string) {
+//     let result;
+//     if(typeof n1 === 'number' && typeof n2 === 'number'){
+//         result = n1 + n2;
+//     }else{
+//         result = n1.toString() + n2.toString();
+//     }
     
-      return result;
-  }
+//       return result;
+//   }
 
 
 //   //Literal types concept 
@@ -172,3 +172,17 @@ const hobbies = ['Sports', 'Cooking'];
 const activeHobbies = ['Hiking']; 
 
 activeHobbies.push(...hobbies)
+
+//useful for pulling out elements from an array 
+
+
+//Rest Operators example: With rest operators we can add an infinite amount of numbers with just one declaration
+
+const add = (...numbers: number[]) => {
+  return numbers.reduce((curResult, curValue) => {
+    return curResult + curValue;
+  }, 0);
+};
+
+const addedNumbers = add(5, 10, 2, 3.7);
+console.log(addedNumbers)
