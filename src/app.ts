@@ -199,3 +199,62 @@ class Department {
 const accounting = new Department('Accounting');
 
 console.log(accounting);
+
+//storing more data in first class 
+class Department {
+  // private id: string;
+  // private name: string; //this would be considered public property, with no need to add public in front of it which means that it is accessible to add more values to the property 
+  private employees: string[] = []; //this can be a string array for the employees; Besides properties, you can also mark methods as "private" . Now this means that employees is only accesible from inside the class
+ 
+    constructor(private id: string, public name: string) { //instead of having double initialization now we can store the fields in the constructor  
+      // this.name = n; with the shortcut we can also save some code 
+  }
+    describe(this:Department) {
+        console.log(`Department (${this.id}): ${this.name}`); 
+    }
+
+    addEmployee(employee: string) {
+        this.employees.push(employee); //pushing employee to our employees array 
+    }
+    printEmployeeInformation() { //using another method to print the employee information
+        console.log(this.employees.length); 
+        console.log(this.employees)
+    }
+}
+
+const accounting = new Department('d1','Accounting');
+accounting.addEmployee('Max'); //since it is Private people have to use the addEmployee method or else they will get an error 
+accounting.addEmployee('Manu');
+
+accounting.describe();
+accounting.printEmployeeInformation(); 
+
+//Read only modifiers 
+//Lets see we want some properties to be read only we are going to add the following; once read-only is added it gives that certain property a sense that should be initialized only once. read-only exist only on TS not JS
+class Department {
+  // private id: string;
+  // private name: string; //this would be considered public property, with no need to add public in front of it which means that it is accessible to add more values to the property 
+  private employees: string[] = []; //this can be a string array for the employees; Besides properties, you can also mark methods as "private" . Now this means that employees is only accesible from inside the class
+ 
+    constructor(private readonly id: string, public name: string) { //instead of having double initialization now we can store the fields in the constructor  
+      // this.name = n; with the shortcut we can also save some code 
+  }
+    describe(this:Department) {
+        console.log(`Department (${this.id}): ${this.name}`); 
+    }
+
+    addEmployee(employee: string) {
+        this.employees.push(employee); //pushing employee to our employees array 
+    }
+    printEmployeeInformation() { //using another method to print the employee information
+        console.log(this.employees.length); 
+        console.log(this.employees)
+    }
+}
+
+const accounting = new Department('d1','Accounting');
+accounting.addEmployee('Max'); //since it is Private people have to use the addEmployee method or else they will get an error 
+accounting.addEmployee('Manu');
+
+accounting.describe();
+accounting.printEmployeeInformation(); 
